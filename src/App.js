@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
+import AdminChat from './conversation/AdminChat';
+import UserChatPage from './conversation/UserChatPage';
+import BookCar from './Booking/Booking';  // Adjust the import path if necessary
+import SendPackage from './Package/Package';  // Adjust the import path if necessary
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin-chat" element={<AdminChat />} />
+          <Route path="/user-chat" element={<UserChatPage />} />
+          <Route path="/booking" element={<BookCar />} />
+          <Route path="/send-package" element={<SendPackage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
